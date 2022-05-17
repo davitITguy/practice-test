@@ -1,4 +1,6 @@
 import React from "react";
+import Blog from "./Blog";
+import WarningClass from "./WarningClass";
 
 class AllComponents extends React.Component {
   render() {
@@ -84,13 +86,40 @@ class AllComponents extends React.Component {
       return <GuestGreeting />;
     }
 
+    //mailbox
+
+    function Mailbox(props) {
+      const unreadMessages = props.unreadMessages;
+      return (
+        <div>
+          <h1>Hello!</h1>
+          {unreadMessages.length > 0 && <h2>You have {unreadMessages.length} unread messages.</h2>}
+        </div>
+      );
+    }
+
+    const messages = ["React", "Re: React", "Re:Re: React"];
+
+    const count = 0;
+
+    const numbers = [1, 2, 3, 4, 5];
+    const doubled = numbers.map(number => number * 2);
+    console.log(doubled);
+
+    const numberss = [1, 2, 3, 4, 5];
+    let listItems;
+
     return (
       <div>
         {<p>{element}</p>}
         <div>{elementt}</div>
         <button onClick={activateLasers}>Activate Lasers</button>
         <div>{Form()}</div>
-        <div>{}</div>
+        {/* <div>{Mailbox()}</div> */}
+        {count && <h1>Messages: {count}</h1>}
+        <WarningClass />
+        {(listItems = numberss.map(number => <li>{number}</li>))}
+        {/* <Blog /> */}
       </div>
     );
   }
